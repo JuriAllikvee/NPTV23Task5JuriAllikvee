@@ -24,13 +24,10 @@ public class Main {
             System.out.println(Arrays.toString(row));
         }
 
-        for (int[] row : jaggedArray) {
-            Arrays.sort(row);
-        }
+        int[] flatArray = Arrays.stream(jaggedArray).flatMapToInt(Arrays::stream).toArray();
+        Arrays.sort(flatArray);
 
         System.out.println("Сортированный массив:");
-        for (int[] row : jaggedArray) {
-            System.out.println(Arrays.toString(row));
-        }
+        System.out.println(Arrays.toString(flatArray));
     }
 }
